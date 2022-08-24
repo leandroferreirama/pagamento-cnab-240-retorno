@@ -1,11 +1,22 @@
 <?php
-if($_FILES && !empty($_FILES['arquivo']['name'])){
-    $fileUpload = $_FILES["arquivo"];
+require __DIR__."/vendor/autoload.php";
 
-    var_dump($fileUpload);
-    echo '<hr>';
-    echo $fileUpload['type'];
+if(isset($_FILES['arquivo'])){
+    try{
+        $leitorArquivo = new \Leandroferreirama\PagamentoCnab240Retorno\Aplicacao\LeitorRetorno();
+        $array = $leitorArquivo->recepcionarArquivo($_FILES['arquivo']);
 
+        if(! is_null($array)){
+            foreach($array as $lote){
+                echo "<hr>LOTE: <br>Codigo banco: {$lote['codigo_banco']}<br>agencia: {$lote['agencia']}<br>Conta: {$lote['conta']}<br>DV: {$lote['contaDv']}<br><hr>CONTEUDO:<bR>";
+                foreach($lote['detalhes'] as $conteudo){
+                    echo "<hr>Segmento: {$conteudo['segmento']} | Data: {$conteudo['data_pagamento']} | Valor: {$conteudo['valor_pagamento']} | Seu nº: {$conteudo['seu_numero']} | Ocorrencia: {$conteudo['ocorrencia']} | Resultado: {$conteudo['resultado']}<hr>";
+                }
+            }
+        }
+    } catch(Exception $exception){
+        echo $exception->getMessage();
+    }
 }
 ?>
 <!doctype html>
@@ -19,7 +30,7 @@ if($_FILES && !empty($_FILES['arquivo']['name'])){
 </head>
 <body>
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="arquivo">
+        <input type="file" name="arquivo[]"multiple>
         <button type="submit">Enviar</button>
     </form>
 </body>

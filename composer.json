@@ -1,0 +1,21 @@
+{
+  "name": "leandroferreirama/pagamento-cnab-240-retorno",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Leandroferreirama\\PagamentoCnab240Retorno\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Leandro Ferreira Marcelli",
+      "email": "suporte@integracaosistema.com.br"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "ext-fileinfo": "*",
+    "ext-mbstring": "*",
+    "symfony/yaml": "^2.0"
+  }
+}

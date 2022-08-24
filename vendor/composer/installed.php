@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'fd5d9f34dfab80bbc4b8d9533da9f559b93f3008',
+        'name' => 'leandroferreirama/pagamento-cnab-240-retorno',
+        'dev' => true,
+    ),
+    'versions' => array(
+        'leandroferreirama/pagamento-cnab-240-retorno' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'fd5d9f34dfab80bbc4b8d9533da9f559b93f3008',
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-ctype' => array(
+            'pretty_version' => 'v1.19.0',
+            'version' => '1.19.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-ctype',
+            'aliases' => array(),
+            'reference' => 'aed596913b70fae57be53d86faa2e9ef85a2297b',
+            'dev_requirement' => false,
+        ),
+        'symfony/yaml' => array(
+            'pretty_version' => 'v2.8.52',
+            'version' => '2.8.52.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/yaml',
+            'aliases' => array(),
+            'reference' => '02c1859112aa779d9ab394ae4f3381911d84052b',
+            'dev_requirement' => false,
+        ),
+    ),
+);
