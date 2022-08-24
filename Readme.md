@@ -2,16 +2,16 @@
 Leitor de arquivo de retorno no padrão CNAB240, o pacote retorna um array contendo os dados do(s) arquivos formatados
 abstraindo a leitura do arquivo.
 
-# Bancos Homologados
+## Bancos Homologados
 1. Bradesco
 2. Itaú
 
-# Segmentos Suportados
+## Segmentos Suportados
 1. A (transferências mesmo banco, TED e PIX)
 2. J (Boletos de Cobrança)
 
-# Como usar
-## HTML
+## Como usar
+### HTML
 
 O componente aceita tanto a leitura de um arquivo, quanto um array de arquivos.
 
@@ -34,15 +34,15 @@ O componente aceita tanto a leitura de um arquivo, quanto um array de arquivos.
 </html>
 ```
 
-## PHP
+### PHP
 Para este exemplo eu apenas mando imprimir as opções
 ```
 try{
     $leitorArquivo = new \Leandroferreirama\PagamentoCnab240Retorno\Aplicacao\LeitorRetorno();
-    $array = $leitorArquivo->recepcionarArquivo($_FILES['arquivo']);
+    $listaLotes = $leitorArquivo->recepcionarArquivo($_FILES['arquivo']);
 
-    if(! is_null($array)){
-        foreach($array as $lote){
+    if(! is_null($listaLotes)){
+        foreach($listaLotes as $lote){
             ### INCLUIR O TRATAMENTO DE IDENTIFICAÇÃO DA CONTA
             echo "<hr>LOTE: <br>Codigo banco: {$lote['codigo_banco']}<br>agencia: {$lote['agencia']}<br>Conta: {$lote['conta']}<br>DV: {$lote['contaDv']}<br><hr>CONTEUDO:<bR>";
             foreach($lote['detalhes'] as $conteudo){
