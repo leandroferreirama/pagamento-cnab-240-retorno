@@ -10,7 +10,7 @@ if(isset($_FILES['arquivo'])){
             foreach($array as $lote){
                 echo "<hr>LOTE: <br>Codigo banco: {$lote['codigo_banco']}<br>agencia: {$lote['agencia']}<br>Conta: {$lote['conta']}<br>DV: {$lote['contaDv']}<br><hr>CONTEUDO:<bR>";
                 foreach($lote['detalhes'] as $conteudo){
-                    echo "<hr>Segmento: {$conteudo['segmento']} | Data: {$conteudo['data_pagamento']} | Valor: {$conteudo['valor_pagamento']} | Seu nº: {$conteudo['seu_numero']} | Ocorrencia: {$conteudo['ocorrencia']} | Resultado: {$conteudo['resultado']}<hr>";
+                    echo "<hr>Segmento: {$conteudo['segmento']} | Data: {$conteudo['data_pagamento']} | Valor: {$conteudo['valor_pagamento']} | Seu nº: {$conteudo['seu_numero']} | Ocorrencia: {$conteudo['ocorrencia']} | Resultado: {$conteudo['resultado']} | Mensagem: {$conteudo['mensagem']}<hr>";
                 }
             }
         }

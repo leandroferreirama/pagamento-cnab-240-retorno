@@ -194,13 +194,17 @@ class LeitorRetorno
             $valor = mb_substr($detalhe, ($conteudo["pos"][0] - 1), $qtdeCorte);
             $arrayConteudo = $arrayConteudo + [$item => $valor];
             if($item == 'ocorrencia'){
+                $classe = 'Leandroferreirama\PagamentoCnab240Retorno\Dominio\Retorno\\'.$this->banco;
+                $banco = new $classe;
+                $mensagem = $banco->lerMensagem($valor);
+
                 $resultado = 'erro';
                 if($valor == '00'){
                     $resultado = 'efetivado';
                 } else if($valor == 'BD'){
                     $resultado = 'agendado';
                 }
-                $arrayConteudo = $arrayConteudo + ['resultado' => $resultado];
+                $arrayConteudo = $arrayConteudo + ['resultado' => $resultado]+ ['mensagem' => $mensagem];
             }
         }
         return $arrayConteudo;
