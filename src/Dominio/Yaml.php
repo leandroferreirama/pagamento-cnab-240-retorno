@@ -5,7 +5,7 @@ namespace Leandroferreirama\PagamentoCnab240Retorno\Dominio;
 use Leandroferreirama\PagamentoCnab240Retorno\Aplicacao\Helper;
 use \Symfony\Component\Yaml\Yaml as YamlSymfony;
 
-class Yaml extends YamlSymfony
+class Yaml
 {
     /**
      * @var
@@ -32,7 +32,7 @@ class Yaml extends YamlSymfony
         if (!file_exists($nomeArquivo)){
             throw new YamlException("Arquivo de configuração {$segmento}.yml não encontrado em: $this->pasta");
         }
-        return $this->validaInformacoes($segmento, $this->parse(file_get_contents($nomeArquivo)));
+        return $this->validaInformacoes($segmento, YamlSymfony::parse(file_get_contents($nomeArquivo)));
     }
 
     /**
